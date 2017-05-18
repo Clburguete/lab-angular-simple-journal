@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 const express       = require('express');
 const router        = express.Router();
 const Entry         = require('../../models/journal-entry');
@@ -26,8 +27,8 @@ router.post('/journal-entries', (req, res, next) => {
   });
 
   newEntry.save( (err) => {
-    if (err)             { return res.status(500).json(err) }
-    if (newEntry.errors) { return res.status(400).json(newEntry) }
+    if (err)             { return res.status(500).json(err); }
+    if (newEntry.errors) { return res.status(400).json(newEntry); }
                            return res.json(newEntry);
   });
 });

@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 const express      = require('express');
 const path         = require('path');
 const favicon      = require('serve-favicon');
@@ -7,6 +8,7 @@ const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
 const cors         = require('cors');
+const JournalEntries = require('./routes/api/journal-entries');
 
 mongoose.connect('mongodb://localhost/journal-development');
 
@@ -31,6 +33,7 @@ app.use(layouts);
 
 const index = require('./routes/index');
 app.use('/', index);
+app.use('/api', JournalEntries);
 
 app.all('/*', function (req, res) {
   res.sendfile(__dirname + '/public/index.html');

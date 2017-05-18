@@ -1,0 +1,7 @@
+<p>
+  Entry List
+</p>
+<div class="" *ngFor = 'let entry of entries'>
+  <h3>{{entry.title}}</h3>
+  <p>{{entry.date | date: 'dd/MM/yyyy'}}</p>
+</div>
